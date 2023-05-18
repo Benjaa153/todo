@@ -1,15 +1,12 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-const Todo = ({ todo, index, deleteTodo, handleCambio, updateTodo, completed }) => {
+const Todo = ({ todo, index, deleteTodo, handleCambio, completed }) => {
   return (
     <>
       <div className="list">
         <h3>{todo}</h3>
         <button className="btn btn-danger" onClick={() => deleteTodo(index)}>
           X
-        </button>
-        <button className="btn btn-primary" onClick={() => updateTodo(index)}>
-          U
         </button>
      
      
@@ -21,7 +18,7 @@ const Todo = ({ todo, index, deleteTodo, handleCambio, updateTodo, completed }) 
             id="flexCheckIndeterminate"
             onChange={() => handleCambio(index)}
           />
-          <label class="form-check-label" for="flexCheckIndeterminate">
+          <label className="form-check-label" htmlFor="flexCheckIndeterminate">
             {completed == true ? <h3>Tarea completa</h3> : <h3>Tarea incompleta</h3>}
           </label>
         </div>

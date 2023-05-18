@@ -1,8 +1,11 @@
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 import Todo from './Todo'
 
 
 const Form = () => {
+
+    const inputText = useRef(); // utilizamos el hook de useRef para no tener que acceder al elemento input mediante el DOM
+
     const [todo, setTodo] = useState({})
     const [todos, setTodos] = useState([
         {todo: 'todo 1', completed: false},
@@ -18,6 +21,8 @@ const Form = () => {
             return
         }
         setTodos([...todos, todo])
+         inputText.current.value = ''
+
     }
 
     const deleteTodo = indice => {
@@ -31,16 +36,11 @@ const Form = () => {
         newTodos[indice].completed = !newTodos[indice].completed; // Cambiar el valor de 'completed'
         setTodos(newTodos); // Actualizar el estado
     }
-
-    const updateTodo = (indice ) => {
-        
-    }
-
     return (
         <>
             <form onSubmit={e => e.preventDefault()}>
                 <label>Agregar tarea</label><br />
-                <input type="text" name="todo" onChange={handleChange}/>
+                <input type="text" name="todo" onChange={handleChange} ref={inputText}/>
                 <button onClick={handleClick}></button>
             </form>
             {
