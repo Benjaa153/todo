@@ -1,5 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
+
 const Todo = ({ todo, index, deleteTodo, handleCambio, completed }) => {
   return (
     <>
@@ -9,7 +10,7 @@ const Todo = ({ todo, index, deleteTodo, handleCambio, completed }) => {
           X
         </button>
      
-     
+
         <div className="form-check">
           <input
             className="form-check-input"

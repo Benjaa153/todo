@@ -22,7 +22,6 @@ const Form = () => {
         }
         setTodos([...todos, todo])
          inputText.current.value = ''
-
     }
 
     const deleteTodo = indice => {
@@ -36,6 +35,7 @@ const Form = () => {
         newTodos[indice].completed = !newTodos[indice].completed; // Cambiar el valor de 'completed'
         setTodos(newTodos); // Actualizar el estado
     }
+    
     return (
         <>
             <form onSubmit={e => e.preventDefault()}>
